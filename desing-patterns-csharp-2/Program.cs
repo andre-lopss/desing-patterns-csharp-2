@@ -1,4 +1,5 @@
 ﻿using desing_patterns_csharp_2.Cap1;
+using desing_patterns_csharp_2.Cap2;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,39 @@ namespace desing_patterns_csharp_2
     {
         static void Main(string[] args)
         {
-            IDbConnection conexao = new ConnectionFactory().GetConnection();
+            NotasMusicais notas = new NotasMusicais();
+            IList<INota> musica = new List<INota>()
+            {
+                notas.Pega("do"),
+                notas.Pega("re"),
+                notas.Pega("mi"),
+                notas.Pega("fa"),
+                notas.Pega("fa"),
+                notas.Pega("fa"),
 
-            IDbCommand comando = conexao.CreateCommand();
-            comando.CommandText = "select * from tabela";
+                notas.Pega("do"),
+                notas.Pega("re"),
+                notas.Pega("do"),
+                notas.Pega("re"),
+                notas.Pega("re"),
+                notas.Pega("re"),
+
+                notas.Pega("do"),
+                notas.Pega("sol"),
+                notas.Pega("fa"),
+                notas.Pega("mi"),
+                notas.Pega("mi"),
+                notas.Pega("mi"),
+
+                notas.Pega("do"),
+                notas.Pega("re"),
+                notas.Pega("mi"),
+                notas.Pega("fa"),
+                notas.Pega("fa"),
+                notas.Pega("fa")
+            };
+            Piano piano = new Piano();
+            piano.Toca(musica);
         }
     }
 }
