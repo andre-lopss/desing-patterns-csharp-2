@@ -1,17 +1,24 @@
-﻿namespace desing_patterns_csharp_2.Cap4
+﻿using desing_patterns_csharp_2.Cap5;
+
+namespace desing_patterns_csharp_2.Cap4
 {
     class Numero : IExpressao
     {
-        private int numero;
+        public int Valor { get; private set; }
 
         public Numero(int numero)
         {
-            this.numero = numero;
+            this.Valor = numero;
         }
 
         public int Avalia()
         {
-            return this.numero;
+            return this.Valor;
+        }
+
+        public void Aceita(ImpressoraVisitor impressora)
+        {
+            impressora.ImprimeNumero(this);
         }
     }
 }
