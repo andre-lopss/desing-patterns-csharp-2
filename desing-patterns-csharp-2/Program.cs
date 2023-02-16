@@ -1,4 +1,5 @@
 ﻿using desing_patterns_csharp_2.Cap3;
+using desing_patterns_csharp_2.Cap4;
 using System;
 
 namespace desing_patterns_csharp_2
@@ -7,20 +8,11 @@ namespace desing_patterns_csharp_2
     {
         static void Main(string[] args)
         {
-            Historico historico = new Historico();
+            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
+            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
+            IExpressao soma = new Soma(esquerda, direita);
 
-            Contrato contrato = new Contrato(DateTime.Now, "André", TipoContrato.Novo);
-            historico.Adiciona(contrato.SalvaEstado());
-
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
-
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
-
-            Console.WriteLine(contrato.Tipo);
-
-            Console.WriteLine(historico.Pega(1).Contrato.Tipo);
+            Console.WriteLine(soma.Avalia());
 
             Console.ReadKey();
         }
