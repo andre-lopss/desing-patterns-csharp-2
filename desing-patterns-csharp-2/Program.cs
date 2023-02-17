@@ -1,5 +1,4 @@
-﻿using desing_patterns_csharp_2.Cap4;
-using desing_patterns_csharp_2.Cap5;
+﻿using desing_patterns_csharp_2.Cap6;
 using System;
 
 namespace desing_patterns_csharp_2
@@ -8,14 +7,10 @@ namespace desing_patterns_csharp_2
     {
         static void Main(string[] args)
         {
-            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
-            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
-            IExpressao soma = new Soma(esquerda, direita);
-
-            Console.WriteLine(soma.Avalia());
-
-            ImpressoraVisitor impressora = new ImpressoraVisitor();
-            soma.Aceita(impressora);
+            IMensagem mensagem = new MensagemAdministrativa("André");
+            IEnviador enviador = new EnviaPorSMS();
+            mensagem.Enviador = enviador;
+            mensagem.Envia();
 
             Console.ReadKey();
         }

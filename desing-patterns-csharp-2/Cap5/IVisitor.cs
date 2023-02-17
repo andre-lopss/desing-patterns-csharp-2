@@ -8,5 +8,6 @@ namespace desing_patterns_csharp_2.Cap5
         void ImprimeSubtracao(Subtracao subtracao);
         void ImprimeMultiplicacao(Multiplicacao multiplicacao);
         void ImprimeDivisao(Divisao divisao);
+        void ImprimeNumero(Numero numero);
     }
 }
