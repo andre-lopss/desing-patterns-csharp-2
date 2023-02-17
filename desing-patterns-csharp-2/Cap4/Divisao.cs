@@ -13,7 +13,7 @@ namespace desing_patterns_csharp_2.Cap4
             this.Direita = Direita;
         }
 
-        public void Aceita(ImpressoraVisitor impressora)
+        public void Aceita(IVisitor impressora)
         {
             impressora.ImprimeDivisao(this);
         }

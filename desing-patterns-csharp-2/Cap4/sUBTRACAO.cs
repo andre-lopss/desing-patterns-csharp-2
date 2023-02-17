@@ -20,7 +20,7 @@ namespace desing_patterns_csharp_2.Cap4
             return valorEsquerda - valorDireita;
         }
 
-        public void Aceita(ImpressoraVisitor impressora)
+        public void Aceita(IVisitor impressora)
         {
             impressora.ImprimeSubtracao(this);
         }
