@@ -1,4 +1,4 @@
-﻿using desing_patterns_csharp_2.Cap7;
+﻿using desing_patterns_csharp_2.Cap8;
 using System;
 
 namespace desing_patterns_csharp_2
@@ -7,14 +7,11 @@ namespace desing_patterns_csharp_2
     {
         static void Main(string[] args)
         {
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("André", 1000.0);
-            Pedido pedido2 = new Pedido("Marcos", 200.0);
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
-            fila.Adiciona(new FinalizaPedido(pedido2));
+            Cliente cliente = new Cliente("André", "Rua tal", DateTime.Now);
 
-            fila.Processa();
+            string xml = new GeradorDeXml().GeraXml(cliente);
+
+            Console.WriteLine(xml);
 
             Console.ReadKey();
         }
