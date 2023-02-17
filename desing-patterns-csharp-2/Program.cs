@@ -1,4 +1,4 @@
-﻿using desing_patterns_csharp_2.Cap8;
+﻿using desing_patterns_csharp_2.Cap9;
 using System;
 
 namespace desing_patterns_csharp_2
@@ -7,11 +7,13 @@ namespace desing_patterns_csharp_2
     {
         static void Main(string[] args)
         {
-            Cliente cliente = new Cliente("André", "Rua tal", DateTime.Now);
+            string cpf = "123445688";
 
-            string xml = new GeradorDeXml().GeraXml(cliente);
+            EmpresaFacade facade = new EmpresaFacadeSingleton().Instancia;
+            //Cliente cliente = facade.BuscaCliente(cpf);
 
-            Console.WriteLine(xml);
+            //var fatura = facade.CriaFatura(cliente, 5000);
+            //facade.GeraCobranca(tipo.Boleto, fatura);
 
             Console.ReadKey();
         }
